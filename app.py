@@ -7,9 +7,6 @@ model = pickle.load(open('car_prediction.pkl','rb'))
 
 @app.route('/')
 def home():
-    
-    f = open('templates/test.txt','r')
-    print(f.read())
     return render_template('index2.html')
     
 
@@ -52,7 +49,8 @@ def predict():
         data = data.reshape(1,-1)
         output =  (model.predict(data))
         k = round(output[0],2)
-        return render_template('index2.html', output = "  Selling Price is : {} Lacks".format(k))
+        f = open('templates/test.txt','r')
+        return render_template('index2.html', output = "  Selling Price is : {} Lacks".format(f.read()))
      
  
     
