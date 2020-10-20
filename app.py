@@ -7,7 +7,11 @@ model = pickle.load(open('car_prediction.pkl','rb'))
 
 @app.route('/')
 def home():
+    
+    f = open('templates/test.txt','r')
+    print(f.read())
     return render_template('index2.html')
+    
 
 @app.route('/predict', methods = ['POST'])
 def predict():
