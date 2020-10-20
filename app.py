@@ -53,7 +53,7 @@ def predict():
         f.write("\n thank god it worked")
         f.close()
         f = open('templates/test.txt','r')
-        return render_template('index2.html', output = "".format(f.read()))
+        return render_template('index2.html', output = "{}".format(f.read()))
      
  
     
