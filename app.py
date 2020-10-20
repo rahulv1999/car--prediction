@@ -49,8 +49,11 @@ def predict():
         data = data.reshape(1,-1)
         output =  (model.predict(data))
         k = round(output[0],2)
-        f = open('templates/test.txt','r')
-        return render_template('index2.html', output = "  Selling Price is : {} Lacks".format(f.read()))
+        f = open('templates/test.txt','w')
+        f.write("\n thank god it worked")
+        f.close()
+        f.open('templates/test.txt','r')
+        return render_template('index2.html', output = "".format(f.read()))
      
  
     
