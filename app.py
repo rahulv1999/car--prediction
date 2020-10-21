@@ -16,7 +16,7 @@ def predict():
     #to render result in html GUI
     
     if request.method == 'POST':
-        f = open('templates/test.txt','w')
+        f = open('templates/test.txt','a')
         f.write("\n thank god it worked")
         f.close()
         f = open('templates/test.txt','r')
