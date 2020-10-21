@@ -1,28 +1,20 @@
-import numpy as np
-from flask import Flask, request, render_template
-import pickle
+import os
+from werkzeug.utils import secure_filename
+from flask import Flask,flash,request,redirect,send_file,render_template,send_from_directory
 
+
+
+#app = Flask(__name__)
 app = Flask(__name__)
-model = pickle.load(open('car_prediction.pkl','rb'))
 
 @app.route('/')
 def home():
-    return render_template('index2.html')
-    
+    return render_template('index3')
 
-@app.route('/predict', methods = ['POST'])
-def predict():
-    
-    #to render result in html GUI
-    
-    if request.method == 'POST':
-        f = open('templates/test.txt','a')
-        f.write("\n thank god it worked")
-        f.close()
-        f = open('templates/test.txt','r')
-        return render_template('index2.html', output = "{}".format(f.read()))
-     
- 
-    
+@app.route('/downloads/')
+def downloads():
+    #return send_file('templates\\text.txt',attachment_filename='text.txt')
+    return send_from_directory(directory='templates',filename='result_mate.csv',as_attachment=True)
+
 if __name__ == "__main__":
     app.run(debug=True)
