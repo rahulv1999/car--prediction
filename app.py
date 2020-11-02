@@ -48,7 +48,7 @@ def predict():
         data = data.reshape(1,-1)
         output =  (model.predict(data))
         k = round(output[0],2)
-        return render_template('index2.html', output = "  Selling Price is : {} Lacks".format(k))
+        return render_template('index.html', output = "  Selling Price is : {} Lacks".format(k))
      
  
     
